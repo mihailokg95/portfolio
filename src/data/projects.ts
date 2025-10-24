@@ -1,10 +1,10 @@
 import type { Project } from '../@types/projects';
-import dioptra from "../assets/dioptraai.png";
-import lightspeeed from "../assets/lightspeed.png";
-import komuna from "../assets/Komuna.png";
-import creaition from "../assets/creaition.png";
-import freecords from "../assets/freecords.png";
-import onedrop from "../assets/1drop.png";
+import dioptra from "/assets/dioptraai.png";
+import lightspeeed from "/assets/lightspeed.png";
+import komuna from "/assets/Komuna.png";
+import creaition from "/assets/creaition.png";
+import freecords from "/assets/freecords.png";
+import onedrop from "/assets/1drop.png";
 
 export const projects: Project[] = [
     {
@@ -80,7 +80,7 @@ export const projects: Project[] = [
         link: "https://www.lightspeedsystems.com/products/alert/",
         color: "cyan",
         year: "2023",
-        video: "https://www.youtube.com/watch?app=desktop&v=Vpva6TDpfCE&t=1s"
+        video: "https://www.youtube.com/watch?v=Vpva6TDpfCE"
     },
     {
         id: 2,

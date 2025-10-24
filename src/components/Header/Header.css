@@ -1,0 +1,376 @@
+.header-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  background: rgba(33, 33, 33, 0.6);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 40;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logo-initial {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-right: 0.2rem;
+}
+
+.logo-name {
+  color: white;
+  font-weight: 600;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link {
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-red));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50%);
+}
+
+.nav-link:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+.nav-link:hover::before {
+  width: 80%;
+}
+
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle {
+  width: 48px;
+  height: 24px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(103, 232, 249, 0.2);
+}
+
+.theme-toggle-indicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-red));
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Active state for theme toggle - moves indicator to the right */
+.theme-toggle.active .theme-toggle-indicator {
+  left: 26px; /* 48px total width - 18px indicator width - 4px padding = 26px */
+}
+
+.cv-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: 'Red Hat Display', sans-serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-red));
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cv-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.cv-button:hover {
+  box-shadow: 
+    0 8px 32px rgba(103, 232, 249, 0.4),
+    0 0 0 1px rgba(103, 232, 249, 0.3);
+  transform: translateY(-2px);
+}
+
+.cv-button:hover::before {
+  opacity: 1;
+}
+
+.cv-button span {
+  position: relative;
+  z-index: 1;
+  color: white; /* Ensure text stays white on hover */
+}
+
+.cv-button svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.cv-button:hover svg {
+  transform: translateY(2px);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+.mobile-menu-active .hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-menu-active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.mobile-menu-active .hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.light .header-container {
+  background: rgba(248, 246, 243, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+}
+
+.light .logo-name {
+  color: var(--light-text);
+  text-shadow: 0 1px 2px rgba(37, 99, 235, 0.05);
+}
+
+.light .logo-initial {
+  background: linear-gradient(135deg, var(--light-accent), #dc2626);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.light .nav-link {
+  color: var(--light-text-soft);
+}
+
+.light .nav-link:hover {
+  color: var(--light-text);
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.light .nav-link::before {
+  background: linear-gradient(135deg, var(--light-accent), #dc2626);
+}
+
+.light .theme-toggle {
+  background: rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.light .theme-toggle:hover {
+  background: rgba(37, 99, 235, 0.15);
+  border-color: var(--light-accent);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+}
+
+.light .theme-toggle-indicator {
+  background: linear-gradient(135deg, var(--light-accent), #dc2626);
+}
+
+.light .theme-toggle.active .theme-toggle-indicator {
+  left: 26px;
+}
+
+.light .cv-button {
+  background: linear-gradient(135deg, var(--light-accent), var(--light-accent-soft));
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+}
+
+.light .cv-button:hover {
+  box-shadow: 
+    0 8px 32px rgba(37, 99, 235, 0.3),
+    0 0 0 1px rgba(37, 99, 235, 0.2);
+}
+
+.light .cv-button::before {
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));
+}
+
+.light .cv-button span {
+  color: white; /* Keep text white in light mode too */
+}
+
+.light .hamburger-line {
+  background: var(--light-text);
+}
+
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 1.5rem 1.5rem;
+  }
+  
+  .header-nav {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+      rgba(33, 33, 33, 0.95) 0%, 
+      rgba(33, 33, 33, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
+  }
+  
+  .header-nav-active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+  }
+  
+  .cv-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .theme-toggle-container {
+    order: -1;
+  }
+
+  /* Mobile menu for light theme */
+  .light .header-nav {
+    background: linear-gradient(135deg, 
+      rgba(248, 246, 243, 0.95) 0%, 
+      rgba(250, 249, 247, 0.98) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 1rem;
+  }
+  
+  .header-logo {
+    font-size: 1.3rem;
+  }
+  
+  .logo-initial {
+    font-size: 1.7rem;
+  }
+}
+
+body.modal-open .header-container {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}

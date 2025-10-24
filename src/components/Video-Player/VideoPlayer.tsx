@@ -93,7 +93,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ url }) => {
   };
 
   return (
-    <div className="relative w-full h-96 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 group">
+    <div className="relative w-full h-full rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 group">
       {loading && !error && !isYouTube && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-900">
           <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />

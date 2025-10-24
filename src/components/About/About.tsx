@@ -1,19 +1,19 @@
 import { Container } from "./styles";
 
-import profileImage from "../../assets/picture.jpg"
+import profileImage from "/assets/picture.jpg"
 // Main tech stack icons
-import reactIcon from "../../assets/react-icon.svg";
-import nextJsIcon from "../../assets/NextJs.svg";
-import nodeIcon from "../../assets/node-icon.svg";
-import nestJsIcon from "../../assets/nestjs.svg";
-import awsIcon from "../../assets/aws.svg";
+import reactIcon from "/assets/react-icon.svg";
+import nextJsIcon from "/assets/NextJs.svg";
+import nodeIcon from "/assets/node-icon.svg";
+import nestJsIcon from "/assets/nestjs.svg";
+import awsIcon from "/assets/aws.svg";
 
 // Additional technology icons (select from your existing imports or add new ones)
-import typescriptIcon from "../../assets/typescript-icon.svg";
-import dockerIcon from "../../assets/docker.svg";
-import graphqlIcon from "../../assets/graphql.svg";
-import postgresIcon from "../../assets/postgreSQL.svg";
-import reduxIcon from "../../assets/redux.svg";
+import typescriptIcon from "/assets/typescript-icon.svg";
+import dockerIcon from "/assets/docker.svg";
+import graphqlIcon from "/assets/graphql.svg";
+import postgresIcon from "/assets/postgreSQL.svg";
+import reduxIcon from "/assets/redux.svg";
 
 import { AnimationOnScroll } from "react-animation-on-scroll";
 

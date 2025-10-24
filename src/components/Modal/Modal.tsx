@@ -20,7 +20,7 @@ const Modal: React.FC<ModalProps> = ({ children }) => {
       document.body.style.overflow = 'hidden';
       document.body.classList.add('modal-open');
     } else {
-      document.body.classList.remove('modal-open'); // And this line for cleanup
+      document.body.classList.remove('modal-open');
     }
 
     return () => {
@@ -39,7 +39,7 @@ const Modal: React.FC<ModalProps> = ({ children }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-black/80 backdrop-blur-md transition-opacity duration-300 overflow-y-auto"
+      className="fixed inset-0 z-[99999] flex items-center justify-center p-4 md:p-6 bg-black/80 backdrop-blur-md transition-opacity duration-300 overflow-y-auto"
       onClick={handleOutsideClick}
       style={{
         animation: `${isOpen ? 'fadeIn' : 'fadeOut'} 0.3s ease-in-out`,
