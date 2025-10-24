@@ -1,21 +1,21 @@
 import { Container } from "./styles";
-
-import profileImage from "/assets/picture.jpg"
-// Main tech stack icons
-import reactIcon from "/assets/react-icon.svg";
-import nextJsIcon from "/assets/NextJs.svg";
-import nodeIcon from "/assets/node-icon.svg";
-import nestJsIcon from "/assets/nestjs.svg";
-import awsIcon from "/assets/aws.svg";
-
-// Additional technology icons (select from your existing imports or add new ones)
-import typescriptIcon from "/assets/typescript-icon.svg";
-import dockerIcon from "/assets/docker.svg";
-import graphqlIcon from "/assets/graphql.svg";
-import postgresIcon from "/assets/postgreSQL.svg";
-import reduxIcon from "/assets/redux.svg";
-
 import { AnimationOnScroll } from "react-animation-on-scroll";
+
+const profileImage = "/assets/picture.jpg";
+
+// Main tech stack icons
+const reactIcon = "/assets/react-icon.svg";
+const nextJsIcon = "/assets/NextJs.svg";
+const nodeIcon = "/assets/node-icon.svg";
+const nestJsIcon = "/assets/nestjs.svg";
+const awsIcon = "/assets/aws.svg";
+
+// Additional technology icons
+const typescriptIcon = "/assets/typescript-icon.svg";
+const dockerIcon = "/assets/docker.svg";
+const graphqlIcon = "/assets/graphql.svg";
+const postgresIcon = "/assets/postgreSQL.svg";
+const reduxIcon = "/assets/redux.svg";
 
 export function About() {
   return (

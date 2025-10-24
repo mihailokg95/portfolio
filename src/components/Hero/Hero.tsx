@@ -2,9 +2,10 @@ import { BrowserRouter } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import Illustration from "/assets/Untitled.svg";
 
 import "./Hero.css";
+
+const Illustration = "/assets/Untitled.svg";
 
 export function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

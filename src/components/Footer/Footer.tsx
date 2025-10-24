@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import './Footer.css';
 
-import reactIcon from '/assets/react-icon.svg';
+const reactIcon = '/assets/react-icon.svg';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();

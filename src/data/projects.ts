@@ -1,10 +1,11 @@
 import type { Project } from '../@types/projects';
-import dioptra from "/assets/dioptraai.png";
-import lightspeeed from "/assets/lightspeed.png";
-import komuna from "/assets/Komuna.png";
-import creaition from "/assets/creaition.png";
-import freecords from "/assets/freecords.png";
-import onedrop from "/assets/1drop.png";
+
+const dioptra = "/assets/dioptraai.png";
+const lightspeeed = "/assets/lightspeed.png";
+const komuna = "/assets/Komuna.png";
+const creaition = "/assets/creaition.png";
+const freecords = "/assets/freecords.png";
+const onedrop = "/assets/1drop.png";
 
 export const projects: Project[] = [
     {

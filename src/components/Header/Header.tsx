@@ -3,8 +3,9 @@ import { NavHashLink, HashLink } from 'react-router-hash-link';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import CurriculumVitae from '/assets/cv_ms.pdf';
 import './Header.css';
+
+const CurriculumVitae = '/assets/cv_ms.pdf';
 
 export function Header() {
   const [isActive, setActive] = useState(false);
