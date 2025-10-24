@@ -27,15 +27,18 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ url }) => {
   const youTubeId = extractYouTubeId(url);
 
   useEffect(() => {
-    setError(false);
-    setLoading(true);
-    setIsPlaying(false);
-    setProgress(0);
-
+    // Reset state when URL changes
+    /* eslint-disable react-hooks/set-state-in-effect */
     if (!url || url.trim() === '') {
       setError(true);
       setLoading(false);
+    } else {
+      setError(false);
+      setLoading(true);
     }
+    setIsPlaying(false);
+    setProgress(0);
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, [url]);
 
   const togglePlay = () => {
