@@ -14,6 +14,9 @@ const Timeline = lazy(() =>
 const TechStackSection = lazy(() => 
   import(/* webpackPrefetch: true, webpackChunkName: "techstack" */ "../TechStack/TechStack")
 );
+const TechStackCarousel = lazy(() => 
+  import(/* webpackPrefetch: true, webpackChunkName: "carousel" */ "../TechStackCarousel/TechStackCarousel")
+);
 const Contact = lazy(() => 
   import(/* webpackPrefetch: true, webpackChunkName: "contact" */ "../Contact/Contact")
 );
@@ -109,6 +112,7 @@ export function Main() {
       <Suspense fallback={<LoadingFallback />}>
         <Timeline />
         <TechStackSection />
+        <TechStackCarousel />
         <About />
         <Contact />
       </Suspense>
