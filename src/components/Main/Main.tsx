@@ -4,25 +4,48 @@ import { loadSlim } from "@tsparticles/slim";
 import { MoveDirection, type IOptions, type RecursivePartial } from "@tsparticles/engine";
 import { lazy, Suspense, useState, useEffect } from "react";
 
-// Lazy load heavy components
-const About = lazy(() => import("../About/About").then(m => ({ default: m.About })));
-const Timeline = lazy(() => import("../Timeline/Timeline"));
-const TechStackSection = lazy(() => import("../TechStack/TechStack"));
-const Contact = lazy(() => import("../Contact/Contact"));
+// Lazy load heavy components with better prefetching
+const About = lazy(() => 
+  import(/* webpackPrefetch: true, webpackChunkName: "about" */ "../About/About").then(m => ({ default: m.About }))
+);
+const Timeline = lazy(() => 
+  import(/* webpackPrefetch: true, webpackChunkName: "timeline" */ "../Timeline/Timeline")
+);
+const TechStackSection = lazy(() => 
+  import(/* webpackPrefetch: true, webpackChunkName: "techstack" */ "../TechStack/TechStack")
+);
+const Contact = lazy(() => 
+  import(/* webpackPrefetch: true, webpackChunkName: "contact" */ "../Contact/Contact")
+);
 
 export function Main() {
   const [init, setInit] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    })
-      .then(() => {
-        setInit(true);
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = () => setPrefersReducedMotion(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handleChange);
+
+    // Initialize particles only if user doesn't prefer reduced motion
+    if (!mediaQuery.matches) {
+      initParticlesEngine(async (engine) => {
+        await loadSlim(engine);
       })
-      .catch((error) => {
-        console.error("Failed to init particles:", error);
-      });
+        .then(() => {
+          setInit(true);
+        })
+        .catch((error) => {
+          console.error("Failed to init particles:", error);
+        });
+    }
+
+    return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
   const options: RecursivePartial<IOptions> = {
@@ -75,7 +98,7 @@ export function Main() {
 
   return (
     <main className="min-h-screen relative z-0 overflow-x-hidden">
-      {init && (
+      {init && !prefersReducedMotion && (
         <Particles
           id="tsparticles"
           className="fixed inset-0 -z-10"

@@ -26,6 +26,18 @@
   --light-gradient-4: rgba(236, 72, 153, 0.03);
 }
 
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 html {
   font-size: 62.5%;
   scroll-padding-top: var(--scroll-padding-top);
