@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import SectionHeader from "./SectionHeader";
 import { technologies, type TechItem } from "../../data/technologies";
+import { projects } from "../../data/projects";
 
 export default function TechStackSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -11,6 +12,11 @@ export default function TechStackSection() {
   const filteredTechs = selectedCategory === "All"
     ? Object.values(technologies).flat()
     : technologies[selectedCategory] || [];
+
+  const START_YEAR = 2017;
+  const currentYear = new Date().getFullYear();
+  const yearsExperience = Math.max(1, currentYear - START_YEAR);
+  const projectsCompleted = projects.length + 10;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -96,8 +102,8 @@ export default function TechStackSection() {
         >
           <StatCard number={Object.values(technologies).flat().length} label="Technologies" />
           <StatCard number={Object.keys(technologies).length} label="Categories" />
-          <StatCard number="5+" label="Years Experience" />
-          <StatCard number="50+" label="Projects Completed" />
+          <StatCard number={`${yearsExperience}+`} label="Years Experience" />
+          <StatCard number={`${projectsCompleted}+`} label="Projects Completed" />
         </motion.div>
         </div>
     </motion.section>
